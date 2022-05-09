@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "core/inc",
+                "drivers/CMSIS",
+                "drivers/device",
+                "drivers/device/STM32F4xx_HAL_Driver/Inc"
+            ],
+            "defines": [
+                "DUSE_HAL_DRIVER",
+                "DSTM32F411xE"
+            ],
+            "compilerPath": "/opt/gcc-arm-none-eabi/bin/arm-none-eabi-g++",
+            "compilerArgs": ["-mcpu=cortex-m4",
+                            "-mthumb"
+            ],
+            "cStandard": "gnu11",
+            "cppStandard": "c++11",
+            "intelliSenseMode": "linux-gcc-x64",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ],
+    "version": 4
+}

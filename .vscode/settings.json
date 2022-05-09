@@ -1,0 +1,12 @@
+{
+    "cortex-debug.gdbPath": "/opt/gcc-arm-none-eabi/bin/arm-none-eabi-gdb",
+    "cortex-debug.armToolchainPath": "/opt/gcc-arm-none-eabi/bin",
+    //"cortex-debug.JLinkGDBServerPath": "/opt/SEGGER/JLink_Linux_V760e_i386/JLinkGDBServer",
+    "cortex-debug.stutilPath": "/opt/stm32/stlink/bin/st-util",
+
+    "files.associations": {
+        "stm32f4xx_hal.h": "c",
+        "stm32f4xx_hal_def.h": "c",
+        "stddef.h": "c"
+    }
+}
