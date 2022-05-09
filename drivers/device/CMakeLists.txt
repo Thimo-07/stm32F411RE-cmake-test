@@ -32,16 +32,15 @@ target_link_libraries(lib_device PRIVATE
 )
 
 target_compile_definitions(lib_device PRIVATE
-        -DUSE_HAL_DRIVER
-        -DSTM32F411xE
+        ${compile_definitions}
 )
 
 # Compiler options
 target_compile_options(lib_device PRIVATE
-    ${compiler_options}
+        ${compiler_options}
 )
 
 # Linker options
 target_link_options(lib_device PRIVATE
-    ${linker_options}
+        ${linker_options}
 )

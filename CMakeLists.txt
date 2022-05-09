@@ -46,6 +46,11 @@ set(linker_options
     -Xlinker -print-memory-usage -Xlinker
 )
 
+set(compile_definitions 
+    -DUSE_HAL_DRIVER
+    -DSTM32F411xE
+)
+
 message(STATUS "CMAKE_TOOLCHAIN_FILE is: ${CMAKE_TOOLCHAIN_FILE}")
 
 add_subdirectory(drivers)
@@ -53,8 +58,7 @@ add_subdirectory(lib)
 add_subdirectory(core)
 
 target_compile_definitions(${EXECUTABLE} PRIVATE
-        -DUSE_HAL_DRIVER
-        -DSTM32F411xE
+    ${compile_definitions}
 )
 
 # Compiler options
