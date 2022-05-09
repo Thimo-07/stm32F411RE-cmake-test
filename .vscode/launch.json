@@ -1,34 +1,17 @@
-// Configure debug launch settings
-// Feel free to copy these and modify them for your debugger and MCU
 {
-    "version": "0.2.0",
-    "projectName": "test-f407vg",
     "configurations": [
         {
-            "name": "STlink launch",
+            "showDevDebugOutput": "parsed",
             "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/build/executables/cmake_test.elf",
+            "executable": "./build/executables/cmake_test.elf",
+            "name": "Debug STM32",
             "request": "launch",
             "type": "cortex-debug",
-            "servertype": "stutil",
-            "device": "STM32F411RE",
-            "interface": "swd",
-            "runToMain": true, // else it starts at reset handler - not interested
-            "svdFile": "", // Include svd to watch device peripherals
-            "swoConfig": {} // currently (v1.7.0) not supported
-        },
-        {
-            "name": "STlink attach",
-            "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/build/executables/cmake_test.elf",
-            "request": "attach",
-            "type": "cortex-debug",
-            "servertype": "stutil",
-            "device": "STM32F411RE",
-            "interface": "swd",
-            "runToMain": true, // else it starts at reset handler - not interested
-            "svdFile": "", // Include svd to watch device peripherals
-            "swoConfig": {} // currently (v1.7.0) not supported
-        },
+            "servertype": "openocd",
+            "device": "stm32f411xe.s",
+            "configFiles": [
+                "openocd.cfg"
+            ]
+        }
     ]
 }

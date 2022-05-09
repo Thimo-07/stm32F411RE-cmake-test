@@ -19,6 +19,33 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+set(compiler_options
+    -mcpu=cortex-m4
+    -mthumb
+    -mfpu=fpv4-sp-d16
+    -mfloat-abi=hard
+    -Wall
+    -O0
+    -g
+)
+
+set(linker_options 
+    -T${LINKER_FILE}
+    -mcpu=cortex-m4
+    -mthumb
+    -mfpu=fpv4-sp-d16
+    -mfloat-abi=hard
+    -specs=nano.specs
+    --specs=nosys.specs
+    -g
+    -lc
+    -lm
+    -lnosys
+    -Wl,-Map=${PROJECT_NAME}.map,--cref
+    -Wl,--gc-sections
+    -Xlinker -print-memory-usage -Xlinker
+)
+
 message(STATUS "CMAKE_TOOLCHAIN_FILE is: ${CMAKE_TOOLCHAIN_FILE}")
 
 add_subdirectory(drivers)
@@ -32,28 +59,10 @@ target_compile_definitions(${EXECUTABLE} PRIVATE
 
 # Compiler options
 target_compile_options(${EXECUTABLE} PRIVATE
-        -mcpu=cortex-m4
-        -mthumb
-        -mfpu=fpv4-sp-d16
-        -mfloat-abi=hard
-        -Wall
-        -O3
-        -g0
-        )
+    ${compiler_options}
+)
 
 # Linker options
 target_link_options(${EXECUTABLE} PRIVATE
-        -T${LINKER_FILE}
-        -mcpu=cortex-m4
-        -mthumb
-        -mfpu=fpv4-sp-d16
-        -mfloat-abi=hard
-        -specs=nano.specs
-        --specs=nosys.specs
-        -lc
-        -lm
-        -lnosys
-        -Wl,-Map=${PROJECT_NAME}.map,--cref
-        -Wl,--gc-sections
-        -Xlinker -print-memory-usage -Xlinker
+    ${linker_options}
 )

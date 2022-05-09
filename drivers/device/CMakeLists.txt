@@ -38,28 +38,10 @@ target_compile_definitions(lib_device PRIVATE
 
 # Compiler options
 target_compile_options(lib_device PRIVATE
-        -mcpu=cortex-m4
-        -mthumb
-        -mfpu=fpv4-sp-d16
-        -mfloat-abi=hard
-        -Wall
-        -O3
-        -g0
-        )
+    ${compiler_options}
+)
 
 # Linker options
 target_link_options(lib_device PRIVATE
-        -T${LINKER_FILE}
-        -mcpu=cortex-m4
-        -mthumb
-        -mfpu=fpv4-sp-d16
-        -mfloat-abi=hard
-        -specs=nano.specs
-        --specs=nosys.specs
-        -lc
-        -lm
-        -lnosys
-        -Wl,-Map=${PROJECT_NAME}.map,--cref
-        -Wl,--gc-sections
-        -Xlinker -print-memory-usage -Xlinker
+    ${linker_options}
 )
