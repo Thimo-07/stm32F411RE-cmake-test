@@ -10,7 +10,7 @@
             "servertype": "openocd",
             "device": "stm32f411xe.s",
             "configFiles": [
-                "openocd.cfg"
+                "tools/openocd/stm32f411RE.cfg"
             ]
         }
     ]

@@ -1,0 +1,36 @@
+// Name these taks the way you want
+// Configure command in make to use desired amount of threads (now 4)
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "group": "build",
+            "type": "shell",
+            "command": "cd",
+            "args": ["build/CMake", "&&", "sudo", "make"]
+        },
+        {
+            "label": "clean build",
+            "group": "build",
+            "type": "shell",
+            "command": "cd",
+            "args": ["build/CMake", "&&", "make", "clean", "&&", "sudo", "make"]
+        },
+        {
+            "label": "clean",
+            "group": "build",
+            "type": "shell",
+            "command": "cd",
+            "args": ["build/CMake", "&&", "make", "clean"]
+        },
+        {
+            "label": "flash",
+            "group": "build",
+            "type": "shell",
+            "command": "/opt/openocd/xpack-openocd-0.11.0-4/bin/openocd",
+            "args": ["-f", "tools/openocd/stm32f411RE.cfg", 
+                    "-f", "tools/openocd/flash.cfg"]
+        },
+    ]
+}
