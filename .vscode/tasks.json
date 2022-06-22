@@ -32,5 +32,13 @@
             "args": ["-f", "tools/openocd/stm32f411RE.cfg", 
                     "-f", "tools/openocd/flash.cfg"]
         },
+        {
+            "label": "cmake",
+            "group": "build",
+            "type": "shell",
+            "command": "cd",
+            "args": ["build/CMake", "&&", "sudo", "cmake",
+            "-DCMAKE_MAKE_PROGRAM=make.exe", "-G", "\"Unix Makefiles\"", "../.."]
+        }, //sudo cmake -DCMAKE_MAKE_PROGRAM=make.exe -G "Unix Makefiles" ../..
     ]
 }
