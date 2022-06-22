@@ -5,6 +5,21 @@
 Clogger Clogger::_logger_instance;
 Clogger &logger_instance = Clogger::get_instance();
 
+void Clogger::init(){
+  _huart2.Instance = USART2;
+  _huart2.Init.BaudRate = 115200;
+  _huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  _huart2.Init.StopBits = UART_STOPBITS_1;
+  _huart2.Init.Parity = UART_PARITY_NONE;
+  _huart2.Init.Mode = UART_MODE_TX_RX;
+  _huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  _huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&_huart2) != HAL_OK)
+  {
+    while(1){}
+  }
+}
+
 void Clogger::log_state(const char state[])
 {
   write_uart("[STATE]: ");
@@ -59,18 +74,6 @@ void Clogger::write_uart(const char message[])
 
 Clogger::Clogger()
 {
-  _huart2.Instance = USART2;
-  _huart2.Init.BaudRate = 115200;
-  _huart2.Init.WordLength = UART_WORDLENGTH_8B;
-  _huart2.Init.StopBits = UART_STOPBITS_1;
-  _huart2.Init.Parity = UART_PARITY_NONE;
-  _huart2.Init.Mode = UART_MODE_TX_RX;
-  _huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  _huart2.Init.OverSampling = UART_OVERSAMPLING_16;
-  if (HAL_UART_Init(&_huart2) != HAL_OK)
-  {
-    while(1){}
-  }
 }
 
 Clogger::~Clogger()

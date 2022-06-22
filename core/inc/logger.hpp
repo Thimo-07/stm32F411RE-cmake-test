@@ -13,7 +13,7 @@ public:
   {
     return _logger_instance;
   }
-
+  void init();
   void log_blank(const char message[]);
   void log_state(const char state[]);
   void log_event(const char event[]);
