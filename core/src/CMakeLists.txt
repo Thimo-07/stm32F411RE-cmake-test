@@ -1,6 +1,8 @@
 add_executable(${EXECUTABLE}
                 main.cpp
+                system_stm32f4xx.c
                 stm32f4xx_it.c
+                logger.cpp
 )             
 
 target_link_libraries(${EXECUTABLE} PUBLIC lib_device)

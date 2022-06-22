@@ -11,7 +11,8 @@
             "device": "stm32f411xe.s",
             "configFiles": [
                 "tools/openocd/stm32f411RE.cfg"
-            ]
+            ],
+            "svdFile": "drivers/device/STM32F411.svd"
         }
     ]
 }

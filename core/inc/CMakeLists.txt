@@ -1,6 +1,7 @@
 add_library(
     lib_includes STATIC
     main.hpp
+    logger.hpp
 )
 
 set_target_properties(lib_includes PROPERTIES LINKER_LANGUAGE CXX)

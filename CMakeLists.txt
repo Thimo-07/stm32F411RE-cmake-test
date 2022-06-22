@@ -10,14 +10,14 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/build/executables)
 set(LINKER_FILE ${CMAKE_SOURCE_DIR}/drivers/device/STM32F411RETx_FLASH.ld)
 
 enable_language(C CXX ASM)
-set(CMAKE_C_STANDARD 99)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(CMAKE_C_EXTENSIONS OFF)
-set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_C_EXTENSIONS ON)
+set(CMAKE_CXX_EXTENSIONS ON)
 
 set(compiler_options
     -mcpu=cortex-m4
@@ -26,7 +26,7 @@ set(compiler_options
     -mfloat-abi=hard
     -Wall
     -O0
-    -g
+    -g3
 )
 
 set(linker_options 
@@ -37,7 +37,7 @@ set(linker_options
     -mfloat-abi=hard
     -specs=nano.specs
     --specs=nosys.specs
-    -g
+    -g3
     -lc
     -lm
     -lnosys
@@ -47,6 +47,7 @@ set(linker_options
 )
 
 set(compile_definitions 
+    -DEBUG
     -DUSE_HAL_DRIVER
     -DSTM32F411xE
 )

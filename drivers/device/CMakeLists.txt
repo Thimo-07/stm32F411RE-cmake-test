@@ -1,9 +1,11 @@
 add_library(lib_device STATIC
         startup_stm32f411xe.s
         system_stm32f4xx.c
+        STM32F4xx_HAL_Driver/Src/msp/stm32f4xx_hal_msp.c
         STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c
         STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c
         STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c
+        STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c
         STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
         STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
         STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c
