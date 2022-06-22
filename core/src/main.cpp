@@ -19,12 +19,12 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
 
-  char message[] = "test2";
+  char message[] = "test6";
   while (1)
   {
     /* USER CODE END WHILE */
 	  HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-	  HAL_UART_Transmit_IT(&huart2, (uint8_t *)message, strlen(message));
+	  HAL_UART_Transmit(&huart2, (uint8_t *)message, strlen(message), strlen(message) * 2);
 	  HAL_Delay(500);
   }
 

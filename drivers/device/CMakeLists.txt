@@ -1,4 +1,4 @@
-add_library(lib_device STATIC
+add_library(lib_device OBJECT
         startup_stm32f411xe.s
         system_stm32f4xx.c
         STM32F4xx_HAL_Driver/Src/msp/stm32f4xx_hal_msp.c

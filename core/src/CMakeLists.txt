@@ -1,12 +1,18 @@
 add_executable(${EXECUTABLE}
                 main.cpp
-                system_stm32f4xx.c
                 stm32f4xx_it.c
                 logger.cpp
+                $<TARGET_OBJECTS:lib_device>
 )             
 
-target_link_libraries(${EXECUTABLE} PUBLIC lib_device)
-target_link_libraries(${EXECUTABLE} PUBLIC lib_includes)
+target_include_directories(${EXECUTABLE} PRIVATE
+                ../inc
+                ../../drivers/device/
+                ../../drivers/device/STM32F4xx_HAL_Driver/Inc
+                ../../drivers/device/STM32F4xx_HAL_Driver/Inc/legacy
+                ../../drivers/device/STM32F4xx_HAL_Driver/Inc/config
+                ../../drivers/CMSIS
+)
 
 add_custom_command(TARGET ${EXECUTABLE}
 POST_BUILD
